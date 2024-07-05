@@ -11,6 +11,10 @@ class HomeScreen extends StatelessWidget{
       appBar: AppBar(
         title: const Text("Home"),
       ),
+      // Menu Drawer
+      drawer: Drawer(
+        child: createMenuDrawer(context)
+      ),
       // Corpo da janela
       body: 
       // Margem na aplicação
@@ -20,5 +24,25 @@ class HomeScreen extends StatelessWidget{
         child: Text("Esse é o Home"),
       )
     );
+  }
+  
+  Widget createMenuDrawer(BuildContext context) {
+    return ListView(children: 
+    [
+      // Cabeçalho do menu
+      const DrawerHeader(child: Text("Menu")),
+      // Criando os itens de menu
+      ListTile(
+        // Nomeando o item
+        title: const Text("Usuários"),
+        // Colocando icone
+        leading: Icon(Icons.people),
+        // Evento do clique
+        onTap: () {
+          Navigator.pop(context);
+        },
+      ),
+    
+    ],);
   }
 }
